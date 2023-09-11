@@ -1,0 +1,60 @@
+<%- include('header_home') -%>
+
+<div class="background">
+
+
+  
+  <div class="registerContainer col-5">
+    
+    
+    
+    <div class="form">
+      
+      
+      <h1 class="heading">Login</h1>
+      <hr class="hr">
+      
+      <form action="/login" method="post">
+        <div class="mb-3 mt-3">
+          <label for="email" class="form-label lable">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="username">
+        </div>
+        <div class="mb-3">
+          <label for="pwd" class="form-label lable">Password:</label>
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+        </div>
+        <% if(locals.message){  %>
+          <div class="error">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <p class="alert alert-danger" "><%= locals.message %></p>
+            
+          </div>
+          
+          <% }  %>
+          
+          <div class="buttons">
+            
+            <button type="submit" class="btn btn-primary" id="registerButton">Submit</button>
+          </div>
+        </form>
+        <hr class="hr">
+        
+        <a class="btn btn-google" href="/auth/google" role="button">
+          <i class="fa-brands fa-google"></i>
+          Sign In
+        </a>
+        
+        
+      </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+

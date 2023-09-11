@@ -1,0 +1,52 @@
+<%- include('header') -%>
+
+
+<div class="video-background">
+
+    <video autoplay loop muted id="video-bg">
+      <source src="video (2160p).mp4" type="video/mp4">
+      
+      <!-- Add other video formats if needed (e.g., Ogg) -->
+      <!-- Video not supported, fallback to an image -->
+
+     
+    
+      
+    </video>
+
+  </div>
+
+  <div class="content">
+
+    <form action="/text-to-speech" method="post">
+      
+        <input name="inputPrompt" id="inputBlock" type="text" placeholder="Ask anything..." />
+       
+        <input type="text" name="voice" id="inputSize" placeholder=" male / female">
+
+        <input type="submit" value="inputMessage" hidden>
+    
+        
+    </form>
+    
+    
+    <div class="receivedData">
+
+      <pre class="pre"> 
+      
+          <audio controls>
+            <source src=" <%= locals.audioUrl %> " type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        
+      </pre>
+        
+    </div>
+    
+  </div>
+
+ 
+
+<%- include('footer') -%>
+
+

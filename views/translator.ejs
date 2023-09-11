@@ -1,0 +1,41 @@
+<%- include('header') -%>
+
+<div class="main-container">
+
+
+
+  <div class="video-background">
+  
+      <video autoplay loop muted id="video-bg">
+        <source src="_import_6166e79cddeab9.62548001_FPpreview.mp4" type="video/mp4">
+        
+        <!-- Add other video formats if needed (e.g., Ogg) -->
+        <!-- Video not supported, fallback to an image -->
+  
+      </video>
+  
+    </div>
+  
+    <div class="content">
+  
+      <form action="/translator" method="post">
+        
+          <input  name="inputMessage" id="inputBlock" type="text" placeholder="Ask anything..." autocomplete="additional-name" />
+          <input type="submit" value="inputMessage" hidden>
+      
+          
+      </form>
+      
+      
+      <div class="receivedData">
+         <pre class ="pre"> <%= locals.data %> </pre> 
+      </div>
+      
+    </div>
+</div>
+
+ 
+
+<%- include('footer') -%>
+
+

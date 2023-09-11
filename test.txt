@@ -1,0 +1,66 @@
+const express  = require("express");
+const bodyParser = require("body-parser");
+const ejs = require("ejs");
+const_= require("lodash");
+const dotenv = require("dotenv").config();
+const { Configuration, OpenAIApi } = require("openai");
+const axios = require("axios");
+
+
+
+
+
+
+const app = express();
+
+app.set('view engine','ejs');
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static("public"));
+
+const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+});
+console.log(process.env.OPENAI_API_KEY);
+const port = process.env.PORT || 3000;
+
+
+app.get("/" , function(req , res) {
+   
+   res.render("GPT" );
+});
+
+const openai = new OpenAIApi(configuration);
+const chat_completion =  openai.createChatCompletion({
+   model: "gpt-3.5-turbo",
+   messages: [
+{ 
+ role: "user",
+ content: message
+ }],
+
+})
+
+
+app.post("/" , async(req , res) =>{
+       
+
+    const arrivedMessage = "";
+
+    try{
+        const message =  req.body.inputMessage;
+
+      
+        
+        const response = await axios.post("https://api.openai.com/v1/chat/completions");
+        const arrivedMessage = res.data;
+
+        console.log(arrivedMessage);
+        
+        res.render("GPT", { arrivedMessage });
+
+    }catch(err) {
+        console.error(err.message);
+        res.render("GPT", { arrivedMessage});
+     }
+    });
+
