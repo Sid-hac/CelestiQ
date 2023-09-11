@@ -111,12 +111,13 @@ app.post("/register" , async(req ,res) => {
               });
                  
                newUser.save();  
+               res.redirect("/GPT");
               
               
             } catch (error) {
               
               console.log(error);
-              res.redirect("/register");
+              res.render("register");
             }
               
           });
