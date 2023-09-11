@@ -22,7 +22,7 @@ const port = process.env.PORT || 3000;
 
 
 
-mongoose.connect("mongodb://localhost:27017/GPTUsersDB" , {useNewUrlParser : true , useUnifiedTopology : true});
+mongoose.connect("mongodb://0.0.0.0:27017/GPTUsersDB" , {useNewUrlParser : true , useUnifiedTopology : true});
 
 userSchema = new mongoose.Schema({
 
